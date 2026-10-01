@@ -2,6 +2,7 @@ create table public.profiles (
   id uuid primary key references auth.users (id) on delete cascade,
   email text,
   subscription_tier text not null default 'free' check (subscription_tier in ('free', 'pro')),
+  credits int not null default 10,
   stripe_customer_id text unique,
   stripe_subscription_id text,
   updated_at timestamptz not null default now()

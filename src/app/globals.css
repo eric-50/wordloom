@@ -3,5 +3,43 @@
 @tailwind utilities;
 
 body {
-  @apply bg-slate-50 text-slate-900 antialiased;
+  @apply bg-canvas font-sans text-ink antialiased;
+}
+
+::selection {
+  background: #ffe45c;
+  color: #1e1631;
+}
+
+@layer components {
+  /* Highlighter mark: a hand-drawn-feeling band behind the text. */
+  .mark {
+    background-image: linear-gradient(104deg, rgba(255, 228, 92, 0) 0.9%, #ffe45c 2.4%, #ffe45c 97%, rgba(255, 228, 92, 0) 98.6%);
+    background-repeat: no-repeat;
+    background-position: 0 88%;
+    background-size: 100% 100%;
+    border-radius: 0.2em 0.5em;
+    padding: 0 0.12em;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-xl bg-violet px-5 py-3 font-semibold text-white transition hover:bg-violet-deep focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-violet/30 disabled:cursor-not-allowed disabled:opacity-60;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-xl px-5 py-3 font-semibold text-ink ring-1 ring-line transition hover:bg-white focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-violet/30;
+  }
+
+  .field {
+    @apply w-full rounded-xl border border-line bg-white px-3.5 py-3 text-[15px] text-ink outline-none transition placeholder:text-muted/60 focus:border-violet focus:ring-4 focus:ring-violet/15;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .motion-sweep,
+  .motion-strike {
+    animation: none !important;
+  }
 }

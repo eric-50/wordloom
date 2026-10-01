@@ -31,11 +31,11 @@ export default function SubscribeButton() {
       <button
         onClick={handleClick}
         disabled={loading}
-        className="w-full rounded-lg bg-violet-600 px-4 py-3 font-semibold text-white transition hover:bg-violet-500 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-violet-300 disabled:cursor-not-allowed disabled:opacity-60"
+        className="w-full rounded-xl bg-highlighter px-5 py-3.5 text-[17px] font-semibold text-ink transition hover:brightness-95 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-highlighter/50 disabled:cursor-not-allowed disabled:opacity-60"
       >
         {loading ? "Opening checkout…" : "Subscribe to Pro ($29/mo)"}
       </button>
-      {error && <p className="mt-3 text-sm text-red-600">{error}</p>}
+      {error && <p role="alert" className="mt-3 text-sm text-red-300">{error}</p>}
     </div>
   );
 }
